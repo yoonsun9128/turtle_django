@@ -1,5 +1,5 @@
 <form action="/create_review/" method="POST">
-    {% csr_token %}
+    {% csrf_token %}
     <label for="content">보낼 메시지</label>
     <input type="text" id="content" name="content" />
     <input type="submit" />

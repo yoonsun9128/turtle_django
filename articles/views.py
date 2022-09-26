@@ -1,3 +1,4 @@
+from multiprocessing import context
 import random
 from django.shortcuts import render
 
@@ -22,3 +23,11 @@ def dinner(request,name):
 
 def review(request):
     return render(request, 'review.html')
+
+def create_review(request):
+    content = request.POST.get('content')
+    print(request.POST)
+    content = {
+        'content':content,
+    }
+    return render(request, 'review_result.html', content)
