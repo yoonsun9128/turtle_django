@@ -1,3 +1,4 @@
+{% extends 'base.html' %} {% block content %} 
 <h1>오늘 {{name}} 님의 저녁은 {{pick.name}} 입니다.</h1>
 <h1>메뉴 리스트</h1>
 <ur>
@@ -12,5 +13,5 @@
 <p>해볼만 하다!!</p>
 {% else %}
 <p>맛있겠다!</p>
-#장고의 템플릿 문법으로 파이썬이랑 다르게 if,for 끝맺음을 해줘야함
-{% endif %} 
+<!-- #장고의 템플릿 문법으로 파이썬이랑 다르게 if,for 끝맺음을 해줘야함 -->
+{% endif %} {% endblock %}
