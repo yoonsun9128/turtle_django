@@ -1,6 +1,7 @@
-from multiprocessing import context
+
 import random
-from django.shortcuts import render
+from turtle import title
+from django.shortcuts import render, redirect
 from .models import Article
 
 # Create your views here.
@@ -16,7 +17,8 @@ def dinner(request,name):
             {'name':'초밥','price':9000}, 
             {'name':'닭발','price':6000}]
     pick = random.choice(menus)
-    articles = Article.objects.all()
+    # order_by('-pk')이용해서 배열 거꾸로
+    articles = Article.objects.order_by('-pk')
     context = {
         'pick':pick,
         'name':name,
@@ -31,8 +33,9 @@ def review(request):
 #request로 받은 메소드가 post 일때 create_review함수 작동
 def create_review(request):
     content = request.POST.get('content')
-    print(request.POST)
-    content = {
-        'content':content,
-    }
-    return render(request, 'review_result.html', content)
+    title = request.POST.get('title')
+    article = Article(title=title, content=content)
+    article.save()
+    
+   
+    return redirect('/articles/dinner/무언가/')
