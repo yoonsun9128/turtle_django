@@ -25,6 +25,7 @@ def dinner(request,name):
 def review(request):
     return render(request, 'review.html')
 
+#request로 받은 메소드가 post 일때 create_review함수 작동
 def create_review(request):
     content = request.POST.get('content')
     print(request.POST)
