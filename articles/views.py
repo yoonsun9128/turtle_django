@@ -6,6 +6,7 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'index.html')
 
+# 저녁메뉴 렌덤으로 선택
 def dinner(request,name):
     menus = [{'name':'족발','price':3000}, 
             {'name':'햄버거','price':4000}, 
