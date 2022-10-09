@@ -5,6 +5,7 @@
 <p>제목: {{ article.title }}</p>
 <p>내용: {{ article.content }}</p>
 <p>작성 시각: {{  article.create_at|date:"SHORT_DATE_FORMAT" }}</p>
+<a href="{% url 'articles:dinner' %}">[back]</a>
 <br />
 
 
