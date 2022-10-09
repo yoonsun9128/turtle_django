@@ -1,6 +1,7 @@
 from multiprocessing import context
 import random
 from django.shortcuts import render
+from .models import Article
 
 # Create your views here.
 def index(request):
@@ -15,10 +16,12 @@ def dinner(request,name):
             {'name':'초밥','price':9000}, 
             {'name':'닭발','price':6000}]
     pick = random.choice(menus)
+    articles = Article.objects.all()
     context = {
         'pick':pick,
         'name':name,
-        'menus':menus
+        'menus':menus,
+        'articles' : articles,
     }
     return render(request, 'dinner.html', context)
 
