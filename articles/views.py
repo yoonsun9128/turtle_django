@@ -50,3 +50,10 @@ def delete(request, pk):
     if request.method == 'POST':
         article.delete()
     return redirect('articles:dinner')
+
+def edit(request, pk):
+    article = Article.objects.get(pk=pk)
+    context = {
+        'article':article,
+    }
+    return render(request, 'edit.html', context)

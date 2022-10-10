@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %}
+{% block content %} 
 <h2 class="text-center">DETAIL</h2>
 <h3>{{ article.pk }}번째 글</h3>
 <br />
@@ -9,6 +10,7 @@
     {% csrf_token %}
     <button class="btn btn-danger">DELETE</button>
 </form>
+<a href="{%url 'articles:edit' article.pk %}" class="btn btn-primary">EDIT</a><br>
 <!-- a태그는 url 형식의 get 방식으로 지워지는 방식 -->
 <!-- <a href="{% url 'articles:delete' article.pk %}">[delete]</a> -->
 <a href="{% url 'articles:dinner' %}">[back]</a>
