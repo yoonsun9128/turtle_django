@@ -5,6 +5,12 @@
 <p>제목: {{ article.title }}</p>
 <p>내용: {{ article.content }}</p>
 <p>작성 시각: {{  article.create_at|date:"SHORT_DATE_FORMAT" }}</p>
+<form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger">DELETE</button>
+</form>
+<!-- a태그는 url 형식의 get 방식으로 지워지는 방식 -->
+<!-- <a href="{% url 'articles:delete' article.pk %}">[delete]</a> -->
 <a href="{% url 'articles:dinner' %}">[back]</a>
 <br />
 
